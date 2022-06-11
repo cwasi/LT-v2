@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 9rem;
+  height: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.ball {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: blue;
+  animation: bounce alternate infinite cubic-bezier(0.2, 0.65, 0.6, 1);
+}
+
+.ball:nth-child(1) {
+  --bounce-offset: -20px;
+  animation-duration: 300ms;
+}
+.ball:nth-child(2) {
+  --bounce-offset: -30px;
+  animation-duration: 250ms;
+}
+.ball:nth-child(3) {
+  --bounce-offset: -40px;
+  animation-duration: 350ms;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px) scaleX(1.1);
+  }
+  to {
+    transform: translateY(var(--bounce-offset)) scaleX(1);
+  }
+}
