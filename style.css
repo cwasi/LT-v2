@@ -24,20 +24,33 @@
   height: 2.5rem;
   border-radius: 50%;
   background-color: blue;
-  animation: bounce alternate infinite cubic-bezier(0.2, 0.65, 0.6, 1);
+  -webkit-animation: bounce alternate infinite cubic-bezier(0.2, 0.65, 0.6, 1);
+          animation: bounce alternate infinite cubic-bezier(0.2, 0.65, 0.6, 1);
 }
 
 .ball:nth-child(1) {
   --bounce-offset: -20px;
-  animation-duration: 300ms;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
 }
 .ball:nth-child(2) {
   --bounce-offset: -30px;
-  animation-duration: 250ms;
+  -webkit-animation-duration: 250ms;
+          animation-duration: 250ms;
 }
 .ball:nth-child(3) {
   --bounce-offset: -40px;
-  animation-duration: 350ms;
+  -webkit-animation-duration: 350ms;
+          animation-duration: 350ms;
+}
+
+@-webkit-keyframes bounce {
+  from {
+    transform: translateY(0px) scaleX(1.1);
+  }
+  to {
+    transform: translateY(var(--bounce-offset)) scaleX(1);
+  }
 }
 
 @keyframes bounce {
